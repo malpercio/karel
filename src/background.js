@@ -1,5 +1,6 @@
 "use strict";
 
+import { resolve } from "path";
 import { app, protocol, BrowserWindow } from "electron";
 import {
   createProtocol,
@@ -15,8 +16,14 @@ let win;
 protocol.registerStandardSchemes(["app"], { secure: true });
 function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({ width: 1200, height: 900, center: true });
-
+  win = new BrowserWindow({
+    width: 1100,
+    height: 825,
+    center: true,
+    minWidth: 800,
+    minHeight: 600,
+    icon: resolve(__static, "logo.png")
+  });
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);

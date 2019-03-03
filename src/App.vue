@@ -1,18 +1,55 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
+      <img
+        :src="
+          require(`@/assets/${
+            $vuetify.breakpoint.lgAndUp ? 'full_logo.png' : 'logo.png'
+          }`)
+        "
+        alt="KarelJS"
+        height="90%"
+        style="padding-right:2%;"
+      />
+
+      <v-btn color="success" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Open</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp">fas fa-folder</v-icon>
+      </v-btn>
+      <v-btn color="info" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Save</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp">fas fa-save</v-icon>
+      </v-btn>
+      <v-btn color="accent" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Toggle view</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp"
+          >fas fa-grip-horizontal</v-icon
+        >
+      </v-btn>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>fas fa-external-link-alt</v-icon>
+      <v-btn color="primary" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Compile</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp">fas fa-cogs</v-icon>
+      </v-btn>
+      <v-btn color="success" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Run</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp">fas fa-play</v-icon>
+      </v-btn>
+      <v-btn color="secondary" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Step</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp"
+          >fas fa-forward</v-icon
+        >
+      </v-btn>
+      <v-btn color="secondary" flat :icon="$vuetify.breakpoint.smAndDown">
+        <div class="hidden-md-and-down">
+          <span>Stop</span>
+        </div>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp">fas fa-stop</v-icon>
+      </v-btn>
+      <v-btn color="error" flat :icon="$vuetify.breakpoint.smAndDown">
+        <span class="hidden-md-and-down">Reset</span>
+        <v-icon dark :right="$vuetify.breakpoint.lgAndUp">fas fa-undo</v-icon>
       </v-btn>
     </v-toolbar>
 
