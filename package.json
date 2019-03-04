@@ -16,9 +16,9 @@
     "@babel/polyfill": "^7.0.0-rc.1",
     "@fortawesome/fontawesome-free": "^5.2.0",
     "chai-as-promised": "^7.1.1",
+    "codemirror": "^5.44.0",
     "roboto-fontface": "*",
     "vue": "^2.6.6",
-    "vue-codemirror": "^4.0.6",
     "vuetify": "^1.3.0",
     "vuex": "^3.0.1"
   },
@@ -33,6 +33,7 @@
     "chai": "^4.1.2",
     "electron": "^4.0.0",
     "eslint": "^5.8.0",
+    "eslint-plugin-async-await": "0.0.0",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.0",
     "node-sass": "^4.9.0",

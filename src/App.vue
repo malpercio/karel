@@ -58,7 +58,7 @@
         <v-layout>
           <v-flex xs12 sm6> </v-flex>
           <v-flex xs12 sm6 fill-height style="position: relative;">
-            <codemirror v-model="code" :options="cmOptions"></codemirror>
+            <Editor></Editor>
           </v-flex>
         </v-layout>
       </v-container>
@@ -67,25 +67,12 @@
 </template>
 
 <script>
-import { codemirror } from "vue-codemirror";
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/cobalt.css";
+import Editor from "@/components/Editor";
 
 export default {
   name: "App",
   components: {
-    codemirror
-  },
-  data() {
-    return {
-      code: "",
-      cmOptions: {
-        tabSize: 4,
-        mode: "text/javascript",
-        theme: "cobalt",
-        lineNumbers: true
-      }
-    };
+    Editor
   }
 };
 </script>

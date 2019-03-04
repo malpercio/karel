@@ -1,7 +1,8 @@
 "use strict";
 
 import { resolve } from "path";
-import { app, protocol, BrowserWindow } from "electron";
+import mainMenuTemplate from "./menus/main";
+import { app, protocol, BrowserWindow, Menu } from "electron";
 import {
   createProtocol,
   installVueDevtools
@@ -27,6 +28,7 @@ function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
+    win.openDevTools();
   } else {
     createProtocol("app");
     // Load the index.html when not in development
@@ -69,6 +71,9 @@ app.on("ready", async () => {
       process.stderr.write("Vue Devtools failed to install:", e.toString());
     }
   }
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+
+  Menu.setApplicationMenu(mainMenu);
   createWindow();
 });
 
