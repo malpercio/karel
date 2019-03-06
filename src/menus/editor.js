@@ -1,46 +1,50 @@
-export default [
+import {Menu,} from "electron";
+
+const menuTemplate = [
   {
     role: "undo",
     label: "Undo",
-    accelerator: "CommandOrControl+Z"
+    accelerator: "CommandOrControl+Z",
   },
 
   {
     role: "redo",
     label: "Redo",
-    accelerator: "CommandOrControl+Y"
+    accelerator: "CommandOrControl+Y",
   },
   {
-    type: "separator"
+    type: "separator",
   },
 
   {
     role: "cut",
     label: "Cut",
-    accelerator: "CommandOrControl+X"
+    accelerator: "CommandOrControl+X",
   },
 
   {
     role: "copy",
     label: "Copy",
-    accelerator: "CommandOrControl+C"
+    accelerator: "CommandOrControl+C",
   },
 
   {
     role: "paste",
     label: "Paste",
-    accelerator: "CommandOrControl+V"
+    accelerator: "CommandOrControl+V",
   },
 
   {
     role: "delete",
     label: "Delete",
-    accelerator: "Del"
+    accelerator: "Del",
   },
 
   {
     role: "selectAll",
     label: "Select All",
-    accelerator: "CommandOrControl+A"
-  }
+    accelerator: "CommandOrControl+A",
+  },
 ];
+
+export default Menu.buildFromTemplate(menuTemplate);

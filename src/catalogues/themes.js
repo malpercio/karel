@@ -54,5 +54,5 @@ export default [
   "xq-dark",
   "xq-light",
   "yeti",
-  "zenburn"
+  "zenburn",
 ];

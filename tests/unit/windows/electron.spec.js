@@ -25,13 +25,15 @@ describe("Application launch", function() {
     }
   });
 
-  it("opens a window", function() {
+  it("should open a window", function() {
     return this.app.client
       .getWindowCount()
       .should.eventually.have.at.least(1)
       .browserWindow.isMinimized()
-      .should.eventually.be.false.browserWindow.isVisible()
-      .should.eventually.be.true.browserWindow.getBounds()
+      .should.eventually.be.false
+      .browserWindow.isVisible()
+      .should.eventually.be.true
+      .browserWindow.getBounds()
       .should.eventually.have.property("width")
       .and.be.above(0)
       .browserWindow.getBounds()

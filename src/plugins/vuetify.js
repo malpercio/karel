@@ -10,7 +10,7 @@ Vue.use(Vuetify, {
     error: "#ff5722",
     info: "#05375e",
     success: "#259b24",
-    warning: "#ffc107"
+    warning: "#ffc107",
   },
-  iconfont: "fa"
+  iconfont: "fa",
 });

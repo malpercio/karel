@@ -5,12 +5,12 @@ import App from "./App.vue";
 import store from "./store";
 import "roboto-fontface/css/roboto/roboto-fontface.css";
 import "@fortawesome/fontawesome-free/css/all.css";
-import { registerRendererProcess } from "@/processes/renderer/registerRendererProcess";
+import {registerRendererProcess,} from "@/processes/renderer/registerRendererProcess";
 
 Vue.config.productionTip = false;
 registerRendererProcess();
 
 new Vue({
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount("#app");

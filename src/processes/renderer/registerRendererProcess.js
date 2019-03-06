@@ -1,4 +1,4 @@
-import { ipcRenderer } from "electron";
+import {ipcRenderer,} from "electron";
 import store from "@/store";
 
 export function registerRendererProcess() {
@@ -11,6 +11,6 @@ export function registerRendererProcess() {
   ipcRenderer.on("getters", () => {
     // const query = store.getters(args.type);
     // ipcRenderer.send("getters", )
-    // TODO: Return an ansmer
+    // TODO: Return an answer
   });
 }

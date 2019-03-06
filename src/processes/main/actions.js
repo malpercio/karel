@@ -2,6 +2,7 @@ const window = require("electron").BrowserWindow;
 
 export function commit(type, payload) {
   const args = {};
+
   if (typeof payload === "object") {
     args.type = type;
     args.payload = payload;

@@ -1,20 +1,21 @@
 "use strict";
 
-import { resolve } from "path";
-import mainMenuTemplate from "./menus/main";
-import { app, protocol, BrowserWindow, Menu } from "electron";
+import {resolve,} from "path";
+import registerMainProcess from "./processes/main/registerMainProcess";
+import menu from "./menus";
+import {app, protocol, BrowserWindow, Menu,} from "electron";
 import {
   createProtocol,
-  installVueDevtools
+  installVueDevtools,
 } from "vue-cli-plugin-electron-builder/lib";
-const isDevelopment = process.env.NODE_ENV !== "production";
 
+const isDevelopment = process.env.NODE_ENV !== "production";
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 
 // Standard scheme must be registered before the app is ready
-protocol.registerStandardSchemes(["app"], { secure: true });
+protocol.registerStandardSchemes(["app",], {secure: true,});
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
@@ -23,12 +24,15 @@ function createWindow() {
     center: true,
     minWidth: 800,
     minHeight: 600,
-    icon: resolve(__static, "logo.png")
+    icon: resolve(__static, "logo.png"),
   });
+  if (isDevelopment && !process.env.IS_TEST) {
+    win.openDevTools();
+  }
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    win.openDevTools();
+
   } else {
     createProtocol("app");
     // Load the index.html when not in development
@@ -71,9 +75,10 @@ app.on("ready", async () => {
       process.stderr.write("Vue Devtools failed to install:", e.toString());
     }
   }
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 
-  Menu.setApplicationMenu(mainMenu);
+  registerMainProcess();
+
+  Menu.setApplicationMenu(menu.main);
   createWindow();
 });
 
